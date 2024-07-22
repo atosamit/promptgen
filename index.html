@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Prompt Generator</h2>
+    <button id="questionButton">Questions</button>
+    <button id="customInputButton">Custom Input</button>
+    
+    <div id="questionSection" style="display: block;">
+        <button class="accordion" onclick="toggleQuestions()">Prompt repository for quick reference</button>
+        <div class="panel" id="questionPanel" style="display: block;">
+            <input type="text" id="searchBox" placeholder="Search questions..." onkeyup="filterQuestions()">
+            <ul id="questionList" style="display: block;"></ul>
+        </div>
+    </div>
+
+    <div id="customInputSection" style="display: none;">
+        <h1>Enter your work details</h1>
+        <form id="userInputForm">
+            <label for="project">Please explain your task in short:</label>
+            <input type="text" id="project" name="project"><br><br>
+
+            <label for="prompt1">Please elaborate on your specific task:</label>
+            <input type="text" id="prompt1" name="prompt1"><br><br>
+            
+            <label for="prompt2">What is the programming language currently you're working on?</label>
+            <input type="text" id="prompt2" name="prompt2"><br><br>
+            
+            <label for="prompt3">Do you want CSS for this code as well?</label>
+            <select id="prompt3" name="prompt3" onchange="handlePrompt3Change()">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select><br><br>
+            
+            <div id="prompt4Container" style="display: none;">
+                <label for="prompt4">Any style-related instruction?</label>
+                <input type="text" id="prompt4" name="prompt4"><br><br>
+            </div>
+            
+            <label for="prompt5">Any specific feature is required to be consider(ex: Redux with saga as a middleware)?</label>
+            <input type="text" id="prompt5" name="prompt5"><br><br>
+            
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+
+        <div id="formattedPrompt"></div>
+        <button id="copyButton" onclick="copyFormattedPrompt()">Copy Formatted Prompt</button>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js">
+        
+    </script>
+</body>
+</html>
